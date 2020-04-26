@@ -14,10 +14,6 @@ import project.board.test.service.ProjectService;
 @Controller
 public class LoginController {
 	@Autowired private ProjectService service;
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String LoginForm(){
-		return "login";
-	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(String id, String pwd, HttpSession session){
@@ -28,13 +24,9 @@ public class LoginController {
 		if(user!=null){
 			session.setAttribute("id", id);
 			session.setAttribute("pwd", pwd);
-			System.out.print("세션에 담겨있는 아이디 값 : " +  session.getAttribute("id"));
-			System.out.print("세션에 담겨있는 비밀번호 값 : " +  session.getAttribute("pwd"));
 			//return "redirect:/";
 			return "board";	
 		}else{
-			System.out.print("세션에 담겨있는 아이디 값 : " +  session.getAttribute("id"));
-			System.out.print("세션에 담겨있는 비밀번호 값 : " +  session.getAttribute("pwd"));
 			return "login";
 		}
 	

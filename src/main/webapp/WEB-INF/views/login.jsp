@@ -40,15 +40,21 @@
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.4.1.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$(".btn_login").click(function(){
-			var id = $("#id").val();
-			if(${sessionScope.id} != id || ${sessionScope.id} == null){
-				alert("다시입력하세요.");
-				return false;
-			}	
-		});	
-	});
+	function idCheck(){
+		var id = document.getElementById("id").value;
+		var pwd = document.getElementById("pwd").value;
+		var sessionid = "${sessionScope.id}";
+		var sessionpwd = "${sessionScope.pwd}";
+		if(sessionid != null){
+			alert("환영합니다.");
+			return false;
+		}
+		if(sessionid != id || sessionid == null || sessionpwd != pwd || sessionpwd == null){
+			alert("아이디와 비밀번호를 확인해 주세요.");
+			return false;
+		}
+		return true;
+	}
 </script>
 </body>
 </html>

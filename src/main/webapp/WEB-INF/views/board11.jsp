@@ -11,7 +11,7 @@
 	<div>
 		<table>
 			<tr>
-				<th class="cen">소속팀</th>
+				<th class="cen">소속팀 </th>
 				<td class="cen"></td>
 				<th class="cen">이름</th>
 				<td class="cen"></td>
